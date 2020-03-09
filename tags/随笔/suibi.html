@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html><!--根标签-->
+<head lang="en"><!--头部标签-->
+    <meta charset="UTF-8">
+    <title>狂拽酷炫</title><!--标题标签-->
+</head>
+<body background="images/picture/1111.bmp"><!--背景图片-->
+<!--bgcolor=#****背景颜色-->
+
+
+    <!--标题标签-->
+    <h1 style="color:black"align="center">编写页面1</h1>
+    <h2 style="color:aqua">编写页面2</h2>
+    <h3 style="color:red"align="left">编写页面3</h3>
+    <h4 style="color:green"align="right">编写页面4</h4>
+    <h5 style="color:black"align="center">编写页面5</h5>
+    <h6 style="color:blue">编写页面6</h6>
+    <!--2.字体-->
+    <font size="2">字体</font><br>
+    <font size="4">字体</font><br>
+    <font size="7">字体</font><br>
+    <font style="font-size: 20px"color="green">字体</font>
+    <!--3.段落-->
+    <!--p段落标签-->
+    <!--&nbsp=空格-->
+    <!--段落标签开始
+    --><p>
+        &nbsp;&nbsp;Java是一门面向对象编程语言，不仅吸收了C++语言的各<strong>种优点，</strong>弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程 [1]
+
+    </p>
+    <!--段落标签结束-->
+    <p>
+        &nbsp;&nbsp;Java具有简单性、面向对象、分布式、健壮性、安全性、平台独立与可移植性、多线程、动态性等特点 [2]  。Java可以编写桌面应用程序、Web应用程序、分布式系统和嵌入式系统应用程序等 [3]  。
+    </p>
+    <hr><!--水平分割线-->
+    <br>
+    <label><b>用户名</b></label>
+    <input type="text"value="请输入用户名">
+    <br>
+    <br>
+    <span>添加用户名：</span><!--SPAN 不会换行-->
+    <!--4.标签中常用的属性-->
+    <input type="text" id="loginNameId"name="loginname"value="请输入用户名"><!--input输入框属性：type；id；name；vlaue-->
+    <label>密码</label><input type="text"id="passwordId"name="password"value="请输入密码"><span>请输入密码</span>
+    <br>
+    <label>无序列表</label>
+    <ul>
+        <li>首页</li>
+        <li type="square">音乐</li>
+        <li style="list-style-type:circle">新闻</li>
+    </ul>
+    <label>有序列表</label>
+    <br>
+    <ol>
+        <li style="list-style-type:armenian">视频</li>
+        <li>图片</li>
+        <li>贴吧</li>
+    </ol>
+    <img src="http://localhost:63342/html01/images/2222.bmp"
+         width="400"
+         height="200px"
+         alt="这是一张图片">
+    <img src="html01图片.html"
+         alt="这是一张照片"
+         width="200px"
+         height="400px">
+    <!--alt=在网页图片失效的情况下提醒这个是图片-->
+
+    <table border="1"align="center"width="50%"><!--style="border:1px solid"-->
+        <!--th为行-->
+        <tr>
+            <th align="center"rowspan="2">机构名称</th><!--rowspan是竖着合并-->
+            <th align="center">开放资源</th>
+            <th align="center">机构名称</th>
+            <th align="center">开放资源</th>
+            <th align="center"colspan="2">机构名称</th><!--colspan是横着合并-->
+           <!-- <th align="center">开放资源</th>-->
+        </tr>
+        <!--td为列-->
+        <tr>
+            <!--<td align="center">发展改委会</td>-->
+            <td align="center">5</td>
+            <td align="center">质监局</td>
+            <td align="center">4</td>
+            <td align="center">人力资源和社会保障局</td>
+            <td align="center">6</td>
+        </tr>
+    </table>
+    <form>
+        <imput type="radio"name="sex"value="male"></imput>
+</form>
+
+</body>
+</html>
