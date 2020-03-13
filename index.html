@@ -151,6 +151,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-sql案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/13/sql%E6%A1%88%E4%BE%8B/">mysql案例</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/13/sql%E6%A1%88%E4%BE%8B/" class="archive-article-date">
+  	<time datetime="2020-03-13T07:39:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="查询1课程比2课程成绩高的学生的信息及课程分数？"><a href="#查询1课程比2课程成绩高的学生的信息及课程分数？" class="headerlink" title="查询1课程比2课程成绩高的学生的信息及课程分数？"></a>查询1课程比2课程成绩高的学生的信息及课程分数？</h2><p>create table student(sid int,sname varchar(10),sage datetime,sex varchar(10));<br>insert into student values(1, ‘赵雷’, ‘1990-01-01’, ‘男’);<br>insert into student values(2, ‘钱电’, ‘1990-01-01’, ‘男’);<br>insert into student values(3, ‘孙风’, ‘1990-01-01’, ‘男’);<br>insert into student values(4, ‘李云’, ‘1990-01-01’, ‘男’);<br>insert into student values(5, ‘周梅’, ‘1990-01-01’, ‘女’);<br>insert into student values(6, ‘吴兰’, ‘1990-01-01’, ‘女’);<br>insert into student values(7, ‘郑竹’, ‘1990-01-01’, ‘女’);<br>insert into student values(8, ‘王菊’, ‘1990-01-01’, ‘女’);</p>
+<p>create table course(cid int,cname varchar(10),tid int);<br>insert into course values(1, ‘语文’, 2);<br>insert into course values(2, ‘数学’, 1);<br>insert into course values(3, ‘英语’, 3);</p>
+<p>create table shc(sid int,cid int,score int);<br>insert into shc values(1, 1, 80);<br>insert into shc values(1, 2, 90);<br>insert into shc values(1, 3, 99);<br>insert into shc values(2, 1, 70);<br>insert into shc values(2, 2, 60);<br>insert into shc values(2, 3, 80);<br>insert into shc values(3, 1, 80);<br>insert into shc values(3, 2, 80);<br>insert into shc values(3, 3, 80);<br>insert into shc values(4, 1, 50);<br>insert into shc values(4, 2, 30);<br>insert into shc values(4, 3, 20);<br>insert into shc values(5, 1, 76);<br>insert into shc values(5, 2, 87);<br>insert into shc values(6, 1, 31);<br>insert into shc values(6, 3, 34);<br>insert into shc values(7, 2, 89);<br>insert into shc values(7, 3, 98);</p>
+<p>sql语句：<br>select * from (select a.sid ,a.score class1, b.score class2 from (select * from shc where cid = 2) a,(select * from shc where cid = 1) b<br>where a.sid = b.sid and a.score&lt;b.score) r LEFT JOIN student s on r.sid = s.sid</p>
+<p>结果如下：<img src="/images/sql%E5%9B%BE%E7%89%8701.png" alt="结果"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/13/sql%E6%A1%88%E4%BE%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的spring-boot复习第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
