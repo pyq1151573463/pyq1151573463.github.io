@@ -16,8 +16,9 @@
 <meta property="og:description" content="查询1课程比2课程成绩高的学生的信息及课程分数？create table student(sid int,sname varchar(10),sage datetime,sex varchar(10));insert into student values(1, ‘赵雷’, ‘1990-01-01’, ‘男’);insert into student values(2, ‘钱电’, ‘1990-0">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/sql%E5%9B%BE%E7%89%8701.png">
+<meta property="og:image" content="http://yoursite.com/images/sql%E5%9B%BE%E7%89%8702.png">
 <meta property="article:published_time" content="2020-03-13T07:39:39.000Z">
-<meta property="article:modified_time" content="2020-03-13T08:28:24.024Z">
+<meta property="article:modified_time" content="2020-03-15T15:33:21.345Z">
 <meta property="article:author" content="庞宇强">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -176,8 +177,12 @@
         <h2 id="查询1课程比2课程成绩高的学生的信息及课程分数？"><a href="#查询1课程比2课程成绩高的学生的信息及课程分数？" class="headerlink" title="查询1课程比2课程成绩高的学生的信息及课程分数？"></a>查询1课程比2课程成绩高的学生的信息及课程分数？</h2><p>create table student(sid int,sname varchar(10),sage datetime,sex varchar(10));<br>insert into student values(1, ‘赵雷’, ‘1990-01-01’, ‘男’);<br>insert into student values(2, ‘钱电’, ‘1990-01-01’, ‘男’);<br>insert into student values(3, ‘孙风’, ‘1990-01-01’, ‘男’);<br>insert into student values(4, ‘李云’, ‘1990-01-01’, ‘男’);<br>insert into student values(5, ‘周梅’, ‘1990-01-01’, ‘女’);<br>insert into student values(6, ‘吴兰’, ‘1990-01-01’, ‘女’);<br>insert into student values(7, ‘郑竹’, ‘1990-01-01’, ‘女’);<br>insert into student values(8, ‘王菊’, ‘1990-01-01’, ‘女’);</p>
 <p>create table course(cid int,cname varchar(10),tid int);<br>insert into course values(1, ‘语文’, 2);<br>insert into course values(2, ‘数学’, 1);<br>insert into course values(3, ‘英语’, 3);</p>
 <p>create table shc(sid int,cid int,score int);<br>insert into shc values(1, 1, 80);<br>insert into shc values(1, 2, 90);<br>insert into shc values(1, 3, 99);<br>insert into shc values(2, 1, 70);<br>insert into shc values(2, 2, 60);<br>insert into shc values(2, 3, 80);<br>insert into shc values(3, 1, 80);<br>insert into shc values(3, 2, 80);<br>insert into shc values(3, 3, 80);<br>insert into shc values(4, 1, 50);<br>insert into shc values(4, 2, 30);<br>insert into shc values(4, 3, 20);<br>insert into shc values(5, 1, 76);<br>insert into shc values(5, 2, 87);<br>insert into shc values(6, 1, 31);<br>insert into shc values(6, 3, 34);<br>insert into shc values(7, 2, 89);<br>insert into shc values(7, 3, 98);</p>
-<p>sql语句：<br>select * from (select a.sid ,a.score class1, b.score class2 from (select * from shc where cid = 2) a,(select * from shc where cid = 1) b<br>where a.sid = b.sid and a.score&lt;b.score) r LEFT JOIN student s on r.sid = s.sid</p>
+<p>sql语句：<br>1、<br>select * from (select a.sid ,a.score class2, b.score class1 from (select * from shc where cid = 2) a,(select * from shc where cid = 1) b<br>where a.sid = b.sid and a.score&lt;b.score) r LEFT JOIN student s on r.sid = s.sid</p>
 <p>结果如下：<img src="/images/sql%E5%9B%BE%E7%89%8701.png" alt="结果"></p>
+<p>2、查询平均成绩大于60分的同学的学号和平均成绩；<br>select sid ,avg(score) from shc GROUP BY sid HAVING avg(score) &gt; 60</p>
+<p>结果如下：<img src="/images/sql%E5%9B%BE%E7%89%8702.png" alt="结果"></p>
+<p>3、查询所有同学的学号、姓名、选课数、总成绩；<br>select sh.sid 学号,s.sname 姓名,COUNT(sh.cid) 选课数,SUM(sh.score) 总成绩 from shc sh,student s<br>where sh.sid=s.sid GROUP BY sh.sid </p>
+<p>4、查询姓“李”的老师的个数；<br>select count(distinct(Tname))from Teacher<br>where Tname like ‘李%’;</p>
 
       
 
@@ -281,6 +286,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/03/15/sql%E6%A1%88%E4%BE%8B02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          sql案例02
+        
+      </div>
+    </a>
   
   
     <a href="/2020/03/12/%E6%88%91%E7%9A%84spring-boot%E5%A4%8D%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
